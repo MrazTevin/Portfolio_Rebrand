@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
+import { ReactNode } from "react"
 
 import { cn } from " @/lib/utils"
 
@@ -63,4 +64,63 @@ function TabsContent({
   )
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+// Create TabContext
+const TabContext = React.createContext<{
+  activeTab: string;
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+  setTargetScroll: React.Dispatch<React.SetStateAction<string | null>>;
+} | null>(null);
+
+function TabProvider({ children }: { children: ReactNode }) {
+  const [activeTab, setActiveTab] = React.useState("experience");
+  const [targetScroll, setTargetScroll] = React.useState<string | null>(null);
+
+  // Scroll handler
+  // const scrollToSection = (id: string) => {
+  //   requestAnimationFrame(() => {
+  //     const element = document.getElementById(id);
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: "smooth", block: "start" });
+  //       setTargetScroll(null);
+  //     }
+  //   });
+  // };
+  const handleTabChange = (newTab: string, targetId: string) => {
+    setActiveTab(newTab);
+    setTargetScroll(targetId);
+  };
+
+  React.useEffect(() => {
+    if (targetScroll) {
+      // Wait for the tab content to render
+      const timeout = setTimeout(() => {
+        const element = document.getElementById(targetScroll);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+          });
+        }
+      }, 100); // Adjusted delay for rendering
+
+      return () => clearTimeout(timeout);
+    }
+  }, [targetScroll, activeTab]);
+
+  // React.useEffect(() => {
+  //   if (targetScroll) {
+  //     scrollToSection(targetScroll);
+  //   }
+  // }, [targetScroll, activeTab]);
+
+  return (
+    <TabContext.Provider value={{ activeTab, setActiveTab, setTargetScroll }}>
+      {children}
+    </TabContext.Provider>
+  );
+}
+
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, TabProvider }
+
