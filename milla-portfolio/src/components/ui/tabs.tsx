@@ -85,10 +85,10 @@ function TabProvider({ children }: { children: ReactNode }) {
   //     }
   //   });
   // };
-  const handleTabChange = (newTab: string, targetId: string) => {
-    setActiveTab(newTab);
-    setTargetScroll(targetId);
-  };
+  // const handleTabChange = (newTab: string, targetId: string) => {
+  //   setActiveTab(newTab);
+  //   setTargetScroll(targetId);
+  // };
 
   React.useEffect(() => {
     if (targetScroll) {

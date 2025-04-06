@@ -6,17 +6,15 @@ import Link from "next/link"
 import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
-import { ExternalLink, Mail, MapPin, CalendarArrowUp } from "lucide-react";
+import { ExternalLink, Mail, MapPin} from "lucide-react";
 import { Badge } from "../components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs"
 import { ThemeToggle } from "./components/theme-toggle";
 import { useTabContext } from " @/context/tabcontext";
 import ToggleMenu from "./components/toggle-menu";
 import "./globals.css"
-import { useEffect } from "react";
 import CalEmbed from "./components/cal-embed";
 import BookingButton from "./components/booking-button";
-// import { TabsContent } from "@radix-ui/react-tabs";
 export default function Home() {
   const {activeTab, setActiveTab} = useTabContext();
 
@@ -73,7 +71,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl flex items-center flex-wrap">
-                Hi, I'm
+                Hi, I&apos;m
                 <div className="inline-block mx-2 relative h-12 w-12 sm:h-16 sm:w-16 overflow-hidden rounded-full border-background bg-background shadow-xl">
                   <Image
                     src="/assets/mil_image.svg?height=300&width=300"
@@ -87,7 +85,7 @@ export default function Home() {
               </h1>
 
               <h2 className="text-2xl sm:text-3xl">
-                I'm a <span className="font-semibold">Backend Developer</span>, {" "}
+                I&apos;m a <span className="font-semibold">Backend Developer</span>, {" "}
                 <span className="text-primary font-semibold">currently upskilling</span>
               </h2>
               <p className="text-muted-foreground max-w-[600px]">
@@ -114,7 +112,7 @@ export default function Home() {
             </div>
 
             <div className="text-sm text-muted-foreground">
-              Feel free to explore my work and reach out - I'd love to connect!
+              Feel free to explore my work and reach out - I&apos;d love to connect!
             </div>
           </div>
 
@@ -392,7 +390,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold">Get In Touch</h3>
                 </div>
                 <div className="space-y-4">
-                  <p>I'm always open to discussing new projects, opportunities, or partnerships</p>
+                  <p>I&apos;m always open to discussing new projects, opportunities, or partnerships</p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button className="gap-2" asChild>
                       <Link href="mailto:millatevin.io@gmail.com">

@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { useTabContext } from " @/context/tabcontext"
 export default function ToggleMenu() {
-    const { setActiveTab } = useTabContext();
-    const {setTargetScroll}= useTabContext();
+    // const { setActiveTab } = useTabContext();
+    // const {setTargetScroll}= useTabContext();
     const {handleTabChange} = useTabContext();
     const [isOpen, setIsOpen] = useState(false)
 

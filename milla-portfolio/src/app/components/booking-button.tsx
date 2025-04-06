@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { getCalApi } from "@calcom/embed-react";
 import { CalendarArrowUp } from "lucide-react";
 import { Button } from "../../components/ui/button";

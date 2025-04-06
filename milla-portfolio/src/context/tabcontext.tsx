@@ -13,7 +13,7 @@ const TabContext = createContext<TabContextType | undefined>(undefined);
 
 export function TabProvider({ children }: { children: ReactNode }) {
   const [activeTab, setActiveTab] = useState("experience"); // Default tab
-  const [targetScroll, setTargetScroll] = useState<string | null>(null);
+  const [, setTargetScroll] = useState<string | null>(null);
   
   const handleTabChange = (newTab: string, targetId: string) => {
     setActiveTab(newTab);
